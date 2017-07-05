@@ -1,0 +1,20 @@
+Source: php-ext-snappy
+Section: php
+Priority: optional
+Maintainer: Rick van de Loo <rick@byte.nl>
+Build-Depends: debhelper (>= 9),
+               dh-php (>= 0.12~),
+               php-all-dev,
+               libsnappy-dev
+Standards-Version: 3.9.8
+Vcs-Git: https://github.com/ByteInternet/php-ext-snappy
+
+Package: php-ext-snappy
+Architecture: any
+Depends: php-igbinary,
+         ${misc:Depends},
+         ${php:Depends},
+         ${shlibs:Depends},
+         libsnappy1v5
+Provides: ${php:Provides}
+Description: Snappy Extension for PHP

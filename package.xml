@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<package packagerversion="1.9.4" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>php-ext-snappy</name>
+ <channel>pecl.php.net</channel>
+ <summary>Snappy Extension for PHP</summary>
+ <description>This extension allows Snappy.</description>
+ <lead>
+  <name>Rick van de Loo</name>
+  <user/>
+  <email/>
+  <active/>
+ </lead>
+ <date>2017-07-05</date>
+ <time>16:47:17</time>
+ <version>
+  <release>src</release>
+  <api>20160309.1</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>stable</api>
+ </stability>
+ <license uri="http://www.php.net/license">PHP</license>
+ <notes>
+php-ext-snappy
+ </notes>
+ <contents>
+  <dir name="/">
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.3.0</min>
+    <max>7.1.0</max>
+    <exclude>6.0.0</exclude>
+   </php>
+   <pearinstaller>
+    <min>1.4</min>
+   </pearinstaller>
+  </required>
+ </dependencies>
+ <providesextension>php-ext-snappy</providesextension>
+ <extsrcrelease />
+</package>
