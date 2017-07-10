@@ -41,5 +41,7 @@ php-ext-snappy
   </required>
  </dependencies>
  <providesextension>php-ext-snappy</providesextension>
- <extsrcrelease />
+ <extsrcrelease>
+  <configureoption name="enable-snappy" prompt="enable snappy support?" default="no"/>
+ </extsrcrelease>
 </package>
