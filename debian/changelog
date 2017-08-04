@@ -1,3 +1,9 @@
+php-ext-snappy (0.1.6-2) unstable; urgency=medium
+
+  * Increment packaging version
+
+ -- Rick van de Loo <rick@byte.nl>  Wed, 5 Jul 2017 16:27:28 +0100
+
 php-ext-snappy (0.1.6-1) unstable; urgency=medium
 
   * Debian packaging
