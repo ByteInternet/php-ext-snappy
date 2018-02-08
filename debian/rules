@@ -1,3 +1,2 @@
 #!/usr/bin/make -f
 include /usr/share/dh-php/pkg-pecl.mk
-PECL_CONFIGURE_MAINT_APPEND = --enable-redis-igbinary
