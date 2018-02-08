@@ -1,3 +1,10 @@
+php-ext-snappy (0.1.9-1) unstable; urgency=medium
+
+  * Import upstream 0.1.9 
+    see https://github.com/ByteInternet/php-ext-snappy/commit/34f4a8bcd50714f62bb805f34b2b5fcdbf0f501f
+
+ -- Rick van de Loo <rick@byte.nl>  Wed, 5 Jul 2017 16:27:28 +0100
+
 php-ext-snappy (0.1.6-2) unstable; urgency=medium
 
   * Increment packaging version
