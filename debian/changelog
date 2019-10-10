@@ -1,3 +1,9 @@
+php-ext-snappy (0.1.9-3) unstable; urgency=medium
+
+  * Allow compiling for PHP 7.3
+
+ -- Rick van de Loo <rick@byte.nl>  Wed, 5 Jul 2017 16:27:28 +0100
+
 php-ext-snappy (0.1.9-2) unstable; urgency=medium
 
   * Allow compiling for PHP 7.2
