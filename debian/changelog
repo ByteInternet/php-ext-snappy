@@ -1,31 +1,8 @@
-php-ext-snappy (0.1.9-3) unstable; urgency=medium
+php-ext-snappy (20200323.144449) UNRELEASED; urgency=medium
 
-  * Allow compiling for PHP 7.3
+  [ Rick van de Loo ]
+  * Import Xenial packaging for Buster
+  * Use rolling release package version
+  * Add auto-tagging build script
 
- -- Rick van de Loo <rick@byte.nl>  Wed, 5 Jul 2017 16:27:28 +0100
-
-php-ext-snappy (0.1.9-2) unstable; urgency=medium
-
-  * Allow compiling for PHP 7.2
-
- -- Rick van de Loo <rick@byte.nl>  Wed, 5 Jul 2017 16:27:28 +0100
-
-php-ext-snappy (0.1.9-1) unstable; urgency=medium
-
-  * Import upstream 0.1.9 
-    see https://github.com/ByteInternet/php-ext-snappy/commit/34f4a8bcd50714f62bb805f34b2b5fcdbf0f501f
-
- -- Rick van de Loo <rick@byte.nl>  Wed, 5 Jul 2017 16:27:28 +0100
-
-php-ext-snappy (0.1.6-2) unstable; urgency=medium
-
-  * Increment packaging version
-
- -- Rick van de Loo <rick@byte.nl>  Wed, 5 Jul 2017 16:27:28 +0100
-
-php-ext-snappy (0.1.6-1) unstable; urgency=medium
-
-  * Debian packaging
-  * New upstream version 0.1.6
-
- -- Rick van de Loo <rick@byte.nl>  Wed, 5 Jul 2017 16:27:28 +0100
+ -- Hypernode team <hypernode@byte.nl>  Mon, 23 Mar 2020 14:44:50 +0000
