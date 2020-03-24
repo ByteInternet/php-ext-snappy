@@ -1,8 +1,11 @@
-php-ext-snappy (20200323.144449) UNRELEASED; urgency=medium
+php-ext-snappy (20200324.084254) UNRELEASED; urgency=medium
 
   [ Rick van de Loo ]
   * Import Xenial packaging for Buster
   * Use rolling release package version
   * Add auto-tagging build script
 
- -- Hypernode team <hypernode@byte.nl>  Mon, 23 Mar 2020 14:44:50 +0000
+  [ Hypernode team ]
+  * UNRELEASED
+
+ -- Hypernode team <hypernode@byte.nl>  Tue, 24 Mar 2020 08:42:55 +0100
