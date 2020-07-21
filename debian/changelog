@@ -1,3 +1,11 @@
+php-ext-snappy (20200721.080644) UNRELEASED; urgency=medium
+
+  [ Rick van de Loo ]
+  * update changelog for php7.4
+  * Bump version so we can build for php7.4
+
+ -- Hypernode team <hypernode@byte.nl>  Tue, 21 Jul 2020 08:06:44 +0000
+
 php-ext-snappy (20200324.084254) UNRELEASED; urgency=medium
 
   [ Rick van de Loo ]
