@@ -11,7 +11,7 @@ Vcs-Git: https://github.com/ByteInternet/php-ext-snappy
 
 Package: php-ext-snappy
 Architecture: any
-Depends: php-igbinary,
+Depends: php-igbinary-all-dev,
          ${misc:Depends},
          ${php:Depends},
          ${shlibs:Depends},
