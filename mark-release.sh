@@ -92,7 +92,11 @@ deb_changelog_updated() {
     gbp dch --debian-tag="%(version)s" --ignore-branch
     # find changelog diff containing author names (in [ name ] format), which means
     # there are new commits in changelog
-    local changed=$(git diff --text --ignore-all-space --unified=0 --no-color -G '\[ ' $CHANGELOG)
+    #local changed=$(git diff --text --ignore-all-space --unified=0 --no-color -G '\[ ' $CHANGELOG)
+    local changed=$(git diff --text --ignore-all-space --unified=0 --no-color $CHANGELOG | grep --line-regexp --perl-regexp '\+\s{2,}\* .+')
+    if [[ -z "$changed" ]]; then
+        changed=$(git diff --text --ignore-all-space --unified=0 --no-color $CHANGELOG | grep --line-regexp --perl-regexp '\+\\s{2,}\[.+\].*')
+    fi
     log "reverting possible changes in debian changelog during update detection"
     git checkout -- $CHANGELOG
     if [[ -n "$changed" ]]; then
