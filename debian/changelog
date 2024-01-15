@@ -1,4 +1,4 @@
-php-ext-snappy (20230210.141056) UNRELEASED; urgency=medium
+php-ext-snappy (20240115.125335) UNRELEASED; urgency=medium
 
   [ Rick van de Loo ]
   * update changelog for php8.1
@@ -6,8 +6,10 @@ php-ext-snappy (20230210.141056) UNRELEASED; urgency=medium
 
   [ Timon de Groot ]
   * Allow building for PHP 8.2
+  * Add support for PHP 8.3
+  * Update mark-release.sh
 
- -- Hypernode team <hypernode@byte.nl>  Fri, 10 Feb 2023 14:10:57 +0000
+ -- Hypernode team <hypernode@byte.nl>  Mon, 15 Jan 2024 12:53:35 +0100
 
 php-ext-snappy (20210611.145009) UNRELEASED; urgency=medium
 
