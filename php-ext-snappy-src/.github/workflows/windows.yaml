@@ -1,0 +1,65 @@
+name: Windows
+
+on: [push]
+
+env:
+  PHP_EXT: snappy
+  BIN_SDK_VER: 2.2.0
+
+jobs:
+  ci:
+    strategy:
+      matrix:
+        php:
+          - '8.2'
+          - '8.1'
+          - '8.0'
+        arch:
+          - x64
+          - x86
+        ts:
+          - 'nts'
+          - 'ts'
+        library:
+          - ''
+          - 'vcpkg'
+
+    runs-on: windows-2019
+
+    env:
+      PHP_VER: ${{ matrix.php }}
+      VC: vs16
+      ARCH: ${{ matrix.arch }}
+      TS: ${{ matrix.ts }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Checkout submodule
+        run: .\.github\workflows\submodule.ps1
+        if: ${{ matrix.library == '' }}
+      - name: Install dependency library
+        run: .\.github\workflows\vcpkg.ps1
+        env:
+          VCPKG_LIBRARY: snappy
+        if: ${{ matrix.library }}
+
+      - name: Install build command
+        run: .\.github\workflows\install.ps1
+
+      - name: Build
+        run: .\.github\workflows\build.ps1
+
+      - name: Test
+        run: .\.github\workflows\test.ps1
+        env:
+          REPORT_EXIT_STATUS: 1
+          NO_INTERACTION: 1
+
+      - name: Store artifact DLL
+        uses: actions/upload-artifact@v3
+        with:
+          name: php_${{ env.PHP_EXT }}-${{ matrix.php }}-${{ matrix.ts }}-${{ matrix.vc }}-${{ matrix.arch }}
+          path: .\php_${{ env.PHP_EXT }}.dll
+        if: ${{ matrix.library == '' }}

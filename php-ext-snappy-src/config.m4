@@ -68,8 +68,8 @@ if test "$PHP_SNAPPY" != "no"; then
   SNAPPY_PATCHLEVEL="7"
 
   AC_PROG_CXX
-  AC_LANG([C++])
-  AC_C_BIGENDIAN
+  AC_LANG_PUSH([C++])
+  AC_C_BIGENDIAN([AC_DEFINE([SNAPPY_IS_BIG_ENDIAN], [1], [snappy is big endian])])
   AC_CHECK_HEADERS([stdint.h stddef.h sys/mman.h sys/resource.h windows.h byteswap.h sys/byteswap.h sys/endian.h sys/time.h])
 
   AC_CHECK_FUNC([mmap])
@@ -101,6 +101,7 @@ if test "$PHP_SNAPPY" != "no"; then
   if test x$snappy_have_builtin_ctz = xyes ; then
     AC_DEFINE([HAVE_BUILTIN_CTZ], [1], [Define to 1 if the compiler supports __builtin_ctz and friends.])
   fi
+  AC_LANG_POP([C++])
 
   if test "$ac_cv_header_stdint_h" = "yes"; then
     AC_SUBST([ac_cv_have_stdint_h], [1])
@@ -128,16 +129,6 @@ if test "$PHP_SNAPPY" != "no"; then
   AC_SUBST([SNAPPY_MINOR])
   AC_SUBST([SNAPPY_PATCHLEVEL])
 
-  if test -f "snappy/snappy-stubs-public.h.in"; then
-    if test "$SNAPPY_PATCHLEVEL" -ge 7; then
-      mv snappy/snappy-stubs-public.h.in snappy/snappy-stubs-public.h.in.orig
-      sed 's/${\(HAVE_[[A-Z\_]]*_H_01\)}/@\1@/' snappy/snappy-stubs-public.h.in.orig > snappy/snappy-stubs-public.h.in
-    fi
-  fi
-
-  AC_CONFIG_FILES([snappy/snappy-stubs-public.h])
-  AC_OUTPUT
-
   dnl Check for stdc++
   LIBNAME=stdc++
   AC_MSG_CHECKING([for stdc++])
@@ -164,7 +155,28 @@ if test "$PHP_SNAPPY" != "no"; then
 
   PHP_NEW_EXTENSION(snappy, snappy.c $SNAPPY_SOURCES, $ext_shared)
 
+  if test -f "$ext_srcdir/snappy/snappy-stubs-public.h.in"; then
+    if test "$SNAPPY_PATCHLEVEL" -ge 7; then
+      mv $ext_srcdir/snappy/snappy-stubs-public.h.in \
+      $ext_srcdir/snappy/snappy-stubs-public.h.in.orig
+
+      sed 's/${\(HAVE_[[A-Z\_]]*_H_01\)}/@\1@/' \
+      $ext_srcdir/snappy/snappy-stubs-public.h.in.orig > \
+      $ext_srcdir/snappy/snappy-stubs-public.h.in
+    fi
+  fi
+  AC_CONFIG_FILES([$ext_srcdir/snappy/snappy-stubs-public.h])
+  AC_OUTPUT
   PHP_ADD_BUILD_DIR($ext_builddir/snappy, 1)
   PHP_ADD_INCLUDE([$ext_srcdir/snappy])
+  fi
+
+  AC_MSG_CHECKING([for APCu includes])
+  if test -f "$phpincludedir/ext/apcu/apc_serializer.h"; then
+    apc_inc_path="$phpincludedir"
+    AC_MSG_RESULT([APCu in $apc_inc_path])
+    AC_DEFINE(HAVE_APCU_SUPPORT,1,[Whether to enable APCu support])
+  else
+    AC_MSG_RESULT([not found])
   fi
 fi

@@ -1,6 +1,7 @@
 # Snappy Extension for PHP
 
-[![Build Status](https://secure.travis-ci.org/kjdev/php-ext-snappy.png?branch=master)](http://travis-ci.org/kjdev/php-ext-snappy)
+[![Linux](https://github.com/kjdev/php-ext-snappy/workflows/Linux/badge.svg?branch=master)](https://github.com/kjdev/php-ext-snappy/actions?query=workflow%3ALinux+branch%3Amaster)
+[![Windows](https://github.com/kjdev/php-ext-snappy/workflows/Windows/badge.svg?branch=master)](https://github.com/kjdev/php-ext-snappy/actions?query=workflow%3AWindows+branch%3Amaster)
 
 This extension allows Snappy.
 
@@ -9,17 +10,19 @@ Documentation for Snappy can be found at
 
 ## Build from sources
 
-    % git clone --recursive --depth=1 https://github.com/kjdev/php-ext-snappy.git
-    % cd php-ext-snappy
-    % phpize
-    % ./configure
-    % make
-    % make install
+```shell
+git clone --recursive --depth=1 https://github.com/kjdev/php-ext-snappy.git
+cd php-ext-snappy
+phpize
+./configure
+make
+make install
+```
 
 To use the system library
 
-``` bash
-% ./configure --with-snappy-includedir=/usr
+```shell
+./configure --with-snappy-includedir=/usr
 ```
 
 ## Distribution binary packages
@@ -30,42 +33,61 @@ RPM packages of this extension are available in [» Remi's RPM repository](https
 
 ## Configuration
 
-snappy.ini:
+php.ini:
 
-    extension=snappy.so
+```ini
+extension=snappy.so
+```
 
-## Function : snappy_compress
+### Function : `snappy_compress()`
 
 string snappy_compress( string $data )
 
-### parameters
+#### parameters
 
 data:
 
     The data to compress.
 
-### return values
+#### return values
 
 The compressed string or FALSE if an error occurred.
 
-## Function : snappy_uncompress
+### Function : `snappy_uncompress()`
 
 string snappy_uncompress( string $data )
 
-### parameters
+#### parameters
 
 name:
 
-    The data compressed by snappy_gzcompress(). 
+    The data compressed by snappy_compress(). 
 
-### return values
+#### return values
 
 The original uncompressed data or FALSE on error.
 
 ## Example
 
-    $compressed = snappy_compress('Compress me');
+```php
+$compressed = snappy_compress('Compress me');
 
-    $uncompressed = snappy_uncompress($compressed);
+$uncompressed = snappy_uncompress($compressed);
 
-    echo $uncompressed;
+echo $uncompressed;
+```
+
+## Troubleshooting
+
+### Ubuntu / OSX
+
+Snappy requires C++ and therefore might require for you to install the g++ or build-essential package. 
+    
+If you get an error about "this file requires compiler and library support" or [compilation errors on OSX](https://github.com/kjdev/php-ext-snappy/issues/19), you need to enforce the compilation with `-std=c++11` flag:
+
+```shell
+export CXXFLAGS=-std=c++11
+phpize
+./configure
+make
+```
