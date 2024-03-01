@@ -12,12 +12,11 @@ Vcs-Git: https://github.com/ByteInternet/php-ext-snappy
 Package: php-ext-snappy
 Architecture: any
 Pre-Depends: php-common (>= 2:69~)
-Depends: php-igbinary-all-dev,
+Depends: libsnappy1v5
          ${misc:Depends},
          ${pecl:Depends},
          ${php:Depends},
-         ${shlibs:Depends},
-         libsnappy1v5
+         ${shlibs:Depends}
 Breaks: ${pecl:Breaks}
 Replaces: ${pecl:Replaces}
 Provides: ${pecl:Provides}
