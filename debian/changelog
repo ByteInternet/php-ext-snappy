@@ -1,4 +1,4 @@
-php-ext-snappy (20241213.141948) UNRELEASED; urgency=medium
+php-ext-snappy (20251218.111601) UNRELEASED; urgency=medium
 
   [ Rick van de Loo ]
   * update changelog for php8.1
@@ -12,8 +12,9 @@ php-ext-snappy (20241213.141948) UNRELEASED; urgency=medium
   * debian: Update debian files to new standards
   * debian: Remove php-igbinary-all-dev dependency
   * Add support for PHP 8.4
+  * Add support for PHP 8.5
 
- -- Hypernode team <hypernode@byte.nl>  Fri, 13 Dec 2024 14:19:48 +0000
+ -- Hypernode team <hypernode@byte.nl>  Thu, 18 Dec 2025 11:16:01 +0100
 
 php-ext-snappy (20210611.145009) UNRELEASED; urgency=medium
 
